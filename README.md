@@ -1,6 +1,6 @@
 # Five Post Wordpress Plugin #
 
-This plugin allows an admin to view the five most recent posts.  It also allows for editong of the title and deleting the post.
+This plugin allows an admin to view the five most recent posts.  It also allows for editing of the title and deleting the post.
 
 ### Usage ###
 
