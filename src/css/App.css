@@ -1,0 +1,189 @@
+#appContainer
+{
+	width: 95%;
+}
+
+#header{
+	border-bottom: 1px solid #ccc;
+	width: 100%;
+}
+
+.pullLeft
+{
+	float: left;
+}
+
+.pullRight
+{
+	float: right;
+}
+
+.mainLogo
+{
+	width: 4%;
+	height: 4%;
+}
+
+.postRow
+{
+	width: 100%;
+	border-bottom: 1px solid #ccc;
+	clear: both;
+	padding: 20px 0px;
+	overflow: hidden;
+}
+
+.postRowTitle
+{
+	font-weight: bold;
+	font-size: 1.2em;
+	margin-bottom: 8px;
+}
+
+.titleEditor
+{
+	margin-bottom: -4px;
+}
+
+.titleEditor input[type=submit]
+{
+	display: none;
+}
+
+.postInfo
+{
+	float: left;
+}
+
+.postImage{
+	float: left;
+	margin-right: 10px;
+}
+
+#loader
+{
+	font-weight: bold;
+	display: none;
+	float: right;
+	margin-top: -45px;
+	margin-right: 10px;
+}
+
+.button {
+    background-color: #aaa;
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+	font-size: 16px;
+	margin-top: 9px;
+	min-width: 150px;
+	cursor: pointer;
+	text-shadow: 1px 1px 0px rgba(0,0,0,0.50);
+}
+
+.button:hover
+{
+	background-color: #BABABA;
+}
+
+.buttonDelete
+{
+	background-color: #E74C3C;
+}
+
+.buttonDelete:hover
+{
+	background-color: #ED6F61;
+}
+
+.buttonYes
+{
+	background-color: #39922d;
+}
+
+.buttonYes:hover
+{
+	background-color: #4FB342;
+}
+
+.buttonEditTitle
+{
+	background-color: #2880B9;
+}
+
+.buttonEditTitle:hover
+{
+	background-color: #3498DB;
+}
+
+.confirmDeleteMessage {
+    background-color: #666;;
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+	font-size: 16px;
+	margin-top: 9px;
+	min-width: 150px;
+	text-shadow: 1px 1px 0px rgba(0,0,0,0.50);
+}
+
+.rowNum
+{
+	float: right;
+	color: #ddd;
+	font-size: 80px;
+	font-weight: bold;
+	margin-top: 20px;
+	text-align: center;
+	min-width: 60px;
+}
+
+input[type="text"] {
+	display: block;
+	margin: 0;
+	width: 100%;
+	font-weight: bold;
+	font-size: 1.2em;
+	background-color: #F1FDC1;
+}
+
+.postDate
+{
+	margin-bottom: 11px;
+}
+
+.inlineForm
+{
+	display: inline-block;
+}
+
+.titleInput
+{
+	float: left;
+}
+
+.titleSubmit
+{
+	float: left;
+}
+
+.titleSubmit button
+{
+	background-color: #39922d;
+	border: none;
+	color: #fff;
+	text-shadow: 1px 1px 0px rgba(0,0,0,0.50);
+	padding: 5px 15px;
+	cursor: pointer;
+}
+
+.titleSubmit button:hover
+{
+	background-color: #4FB342;
+}
