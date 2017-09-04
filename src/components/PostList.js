@@ -2,6 +2,7 @@ import React from 'react';
 import PostRow from './PostRow';
 import styles from '../css/App.css';
 import axios from 'axios';
+import { connect } from 'react-redux';
 const noImage = require( '../img/no_image.png' );
 const loader = require( '../img/loader3.svg' );
 
@@ -73,4 +74,11 @@ class PostList extends React.Component{
     }
 }
 
-export default PostList;
+let mapStateToProps = (state) =>
+{
+    return {
+        fakePosts: state.fakePosts
+    };
+}
+
+export default connect(mapStateToProps)(PostList);

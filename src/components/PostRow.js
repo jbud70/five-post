@@ -3,6 +3,9 @@ import styles from '../css/App.css';
 import axios from 'axios';
 import classNames from 'classnames';
 import jquery from 'jquery';
+import { connect } from 'react-redux';
+import { selectPost } from '../actions/index';
+import { bindActionCreators } from 'redux';
 import TitleEditor from './TitleEditor';
 const noImage = require( '../img/no_image.png' );
 
@@ -90,6 +93,7 @@ class PostRow extends React.Component{
                         <div className={styles.postDate} ><em>{this.props.date}</em></div>
                         {editButtonState}
                         {deleteButtonState}
+                        <button onClick={() => this.props.selectPost()}>Test It!</button>
                     </div>
                     <div className={styles.rowNum}>{this.props.rowNum}</div>
                 </div>
@@ -141,4 +145,8 @@ let ConfirmDelete = (props) => {
     )
 }
 
-export default PostRow;
+let mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({ selectPost: selectPost }, dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(PostRow);
