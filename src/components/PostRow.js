@@ -4,7 +4,7 @@ import axios from 'axios';
 import classNames from 'classnames';
 import jquery from 'jquery';
 import { connect } from 'react-redux';
-import { selectPost } from '../actions/index';
+import { selectPost, getPosts } from '../actions/index';
 import { bindActionCreators } from 'redux';
 import TitleEditor from './TitleEditor';
 const noImage = require( '../img/no_image.png' );
@@ -33,7 +33,7 @@ class PostRow extends React.Component{
 
         axios.delete( deleteURL, config )
         .then( () => { 
-            this.refreshList();
+            this.props.getPosts();
         })
         .then( () => {
             this.setState({isDeleting: false});
@@ -52,10 +52,6 @@ class PostRow extends React.Component{
     cancelEdit() {
         this.setState({isEditing: false});
     }
-    
-    refreshList() {
-        this.props.handleGetPostList();
-    }
 
     render() {
         let titleState = null;
@@ -66,7 +62,6 @@ class PostRow extends React.Component{
             titleState = <TitleEditor titleText={this.props.title} 
                                       editorId={this.props.postID}
                                       postID={this.props.postID}
-                                      refreshList={() => this.refreshList()}
                                       closeEditor={() => this.cancelEdit()}
                                      />;
             editButtonState = <CancelEditButton onClick={() => this.cancelEdit()} />;
@@ -93,7 +88,6 @@ class PostRow extends React.Component{
                         <div className={styles.postDate} ><em>{this.props.date}</em></div>
                         {editButtonState}
                         {deleteButtonState}
-                        <button onClick={() => this.props.selectPost()}>Test It!</button>
                     </div>
                     <div className={styles.rowNum}>{this.props.rowNum}</div>
                 </div>
@@ -146,7 +140,7 @@ let ConfirmDelete = (props) => {
 }
 
 let mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ selectPost: selectPost }, dispatch);
+    return bindActionCreators({ getPosts: getPosts }, dispatch);
 }
 
 export default connect(null, mapDispatchToProps)(PostRow);

@@ -1,8 +1,13 @@
-const SELECT_POST = 'SELECT_POST';
+import axios from 'axios';
+const ROOT_URL = WPSettings.root;
 
-export function selectPost() {
+export const GET_POSTS = 'GET_POSTS';
+
+export function getPosts() {
+    const url = `${ROOT_URL}wp/v2/posts/?per_page=5&_embed`;
+    const request = axios.get(url);
     return{
-        type: SELECT_POST,
-        text: 'Post has been selected'
+        type: GET_POSTS,
+        payload: request
     }
 }

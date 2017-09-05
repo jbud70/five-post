@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import PostsReducer from './reducer_posts';
+import PostList from './reducer_postList';
 
 const rootReducer = combineReducers({
-    fakePosts: PostsReducer
+    allPosts: PostList
 });
 
 export default rootReducer;
