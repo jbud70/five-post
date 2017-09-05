@@ -1,7 +1,7 @@
 import React from 'react';
 import jquery from 'jquery';
 import { connect } from 'react-redux';
-import { selectPost, getPosts } from '../actions/index';
+import { fetchPosts } from '../actions/index';
 import { bindActionCreators } from 'redux';
 import styles from '../css/App.css';
 
@@ -28,7 +28,7 @@ class TitleEditor extends React.Component {
               }
             }).done(function(response) {
                 th.props.closeEditor();
-                th.props.getPosts();
+                th.props.fetchPosts();
             })
             .fail(function(e) {
                 console.log( e );
@@ -74,7 +74,7 @@ class TitleEditor extends React.Component {
 }
 
 let mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ getPosts: getPosts }, dispatch);
+    return bindActionCreators({ fetchPosts }, dispatch);
 }
 
 export default connect(null, mapDispatchToProps)(TitleEditor);

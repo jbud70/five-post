@@ -2,9 +2,8 @@ import React from 'react';
 import styles from '../css/App.css';
 import axios from 'axios';
 import classNames from 'classnames';
-import jquery from 'jquery';
 import { connect } from 'react-redux';
-import { selectPost, getPosts } from '../actions/index';
+import { fetchPosts } from '../actions/index';
 import { bindActionCreators } from 'redux';
 import TitleEditor from './TitleEditor';
 const noImage = require( '../img/no_image.png' );
@@ -33,7 +32,7 @@ class PostRow extends React.Component{
 
         axios.delete( deleteURL, config )
         .then( () => { 
-            this.props.getPosts();
+            this.props.fetchPosts();
         })
         .then( () => {
             this.setState({isDeleting: false});
@@ -140,7 +139,7 @@ let ConfirmDelete = (props) => {
 }
 
 let mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ getPosts: getPosts }, dispatch);
+    return bindActionCreators({ fetchPosts }, dispatch);
 }
 
 export default connect(null, mapDispatchToProps)(PostRow);

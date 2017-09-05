@@ -2,18 +2,30 @@ import React from 'react';
 import PostRow from './PostRow';
 import styles from '../css/App.css';
 import { connect } from 'react-redux';
-import { getPosts } from '../actions/index';
+import { fetchPosts } from '../actions/index';
 import { bindActionCreators } from 'redux';
 const noImage = require( '../img/no_image.png' );
 const loader = require( '../img/loader3.svg' );
 
 class PostList extends React.Component{
     componentDidMount() {
-        this.props.getPosts();
+        this.props.fetchPosts();
     }
     
     render() {
-        let posts = this.props.allPosts.map((post, index) => 
+        if (this.props.hasErrored) {
+            return <p>An error has occured fetching the posts.</p>;
+        }
+
+        if (this.props.isLoading) {
+            return (
+                <div id={styles.loader}>
+                    <img src={loader} />
+                </div>
+            );
+        }
+
+        let postList = this.props.posts.map((post, index) => 
         {
             // Generate Image URL
             let image_url = "";
@@ -39,22 +51,25 @@ class PostList extends React.Component{
         
         return (           
             <div>
-                <div id={styles.loader}><img src={loader} /></div>
                 <div>
-                    {posts}
+                    {postList}
                 </div>
             </div>
         )
     }
 }
 
-let mapStateToProps = ({ allPosts }) =>
+let mapStateToProps = (state) =>
 {
-    return { allPosts };
+    return {
+        posts: state.posts,
+        hasErrored: state.postsHasErrored,
+        isLoading: state.postsIsFetching
+    };
 }
 
 let mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ getPosts: getPosts }, dispatch);
+    return bindActionCreators({ fetchPosts }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostList);

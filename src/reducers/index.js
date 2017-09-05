@@ -1,8 +1,12 @@
 import { combineReducers } from 'redux';
-import PostList from './reducer_postList';
+import posts from './reducer_posts';
+import postsHasErrored from './reducer_postsHasErrored';
+import postsIsFetching from './reducer_postsIsFetching';
 
 const rootReducer = combineReducers({
-    allPosts: PostList
+    posts,
+    postsHasErrored,
+    postsIsFetching
 });
 
 export default rootReducer;
