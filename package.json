@@ -29,7 +29,7 @@
     "webpack-hot-middleware": "^2.18.2"
   },
   "dependencies": {
-    "axios": ">=0.18.1",
+    "axios": ">=0.21.1",
     "browsersync-webpack-plugin": "^0.6.0",
     "classnames": "^2.2.5",
     "copy-webpack-plugin": "^4.0.1",
